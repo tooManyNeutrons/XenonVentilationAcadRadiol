@@ -1,0 +1,50 @@
+{
+    "session_name": "NASNET Large with Transfer Learning",
+    "session_date": "13/09/2024",
+    "session_description":"Versions to autorun for the paper",
+    
+    "IMAGE_SIZE":192,
+    "NCLASSES":6,
+    "BATCH_SIZE":16,
+    "NEPOCHS":200,
+    "NFOLDS":5,
+    "epoch_save_step":5,
+    "snr_threshold":2,
+    "random_seed":1337,
+    "Relabel_defects":true,
+    "Relabel_exceptions":true,
+    "image_type":"Vent",
+    "DATA_PATH":"/home/cpir-5820/DeepLearning/Data/Classification/Axial_curated/",
+    "PathOutput":"/home/cpir-5820/DeepLearning/v0.1/Output/Paper_Trials/ConvNeXtXLargeTransfer",
+
+    "model": {
+        "architecture":"ConvNeXtXLarge",
+        "weights":"imagenet",
+        "freeze_layers":225,
+        "learning_rate":0.00001, 
+        "clipvalue":0.1, 
+        "clipnorm":1,
+        "smoothing":0.01,
+        "gamma":8.0
+    },
+
+    "diseases":{
+            "Control":0,
+            "Asthma":1,
+            "BOS":2,
+            "BPD":3,
+            "CF":4,
+            "LAM":5
+    },
+
+    "transform_parameters":{
+        "x_translate":15, 
+        "y_translate":15, 
+        "scale":0.2, 
+        "rotate":0.3, 
+        "flip_x":true, 
+        "noise":0.03, 
+        "elastic_alpha":800,
+        "elastic_sigma":35
+    }
+}
